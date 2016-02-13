@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Controllers;
+
+use Silex\Application;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 
 class NotesController
 {
@@ -16,9 +16,27 @@ class NotesController
         $this->notesService = $service;
     }
 
-    public function getAll()
+    public function routes(Application $app)
+    {
+        $routing = $app["controllers_factory"];
+
+        $routing->get('/notes', "notes.controller:fetchAll");
+        $routing->get('/notes/{id}', "notes.controller:fetch");
+        $routing->post('/notes', "notes.controller:save");
+        $routing->put('/notes/{id}', "notes.controller:update");
+        $routing->delete('/notes/{id}', "notes.controller:delete");
+
+        return $routing;
+    }
+
+    public function fetchAll()
     {
         return new JsonResponse($this->notesService->getAll());
+    }
+
+    public function fetch($id)
+    {
+        return new JsonResponse($this->notesService->get($id));
     }
 
     public function save(Request $request)

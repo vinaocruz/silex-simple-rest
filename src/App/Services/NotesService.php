@@ -2,28 +2,32 @@
 
 namespace App\Services;
 
-class NotesService extends BaseService
+class NotesService
 {
 
     public function getAll()
     {
-        return $this->db->fetchAll("SELECT * FROM notes");
+        return [];
+    }
+
+    function get($id)
+    {
+        return $id;
     }
 
     function save($note)
     {
-        $this->db->insert("notes", $note);
-        return $this->db->lastInsertId();
+        return 1;
     }
 
     function update($id, $note)
     {
-        return $this->db->update('notes', $note, ['id' => $id]);
+        return true;
     }
 
     function delete($id)
     {
-        return $this->db->delete("notes", array("id" => $id));
+        return true;
     }
 
 }

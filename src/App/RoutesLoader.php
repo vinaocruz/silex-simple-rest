@@ -24,14 +24,9 @@ class RoutesLoader
 
     public function bindRoutesToControllers()
     {
-        $api = $this->app["controllers_factory"];
+        $routing = $this->app['notes.controller']->routes($this->app);
 
-        $api->get('/notes', "notes.controller:getAll");
-        $api->post('/notes', "notes.controller:save");
-        $api->put('/notes/{id}', "notes.controller:update");
-        $api->delete('/notes/{id}', "notes.controller:delete");
-
-        $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $api);
+        $this->app->mount($this->app["api.endpoint"].'/'.$this->app["api.version"], $routing);
     }
 }
 
