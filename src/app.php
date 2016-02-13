@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Carbon\Carbon;
 
-date_default_timezone_set('Europe/London');
+date_default_timezone_set($app['app.timezone']);
 
 define("ROOT_PATH", __DIR__ . "/..");
 

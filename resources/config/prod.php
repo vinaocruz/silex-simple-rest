@@ -9,3 +9,4 @@ $app['db.options'] = array(
   "dbname" => "prod_db",
   "host" => "prod_host",
 );
+$app['app.timezone'] = 'America/Bahia';
