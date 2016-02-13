@@ -2,14 +2,12 @@
 
 use Silex\Application;
 use Silex\Provider\HttpCacheServiceProvider;
-use Silex\Provider\DoctrineServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use App\ServicesLoader;
-use App\RoutesLoader;
 use Carbon\Carbon;
 
 date_default_timezone_set('Europe/London');
@@ -43,7 +41,7 @@ $app->before(function (Request $request) {
 });
 
 $app->register(new ServiceControllerServiceProvider());
-
+$app->register(new ValidatorServiceProvider());
 $app->register(new HttpCacheServiceProvider(), array("http_cache.cache_dir" => ROOT_PATH . "/storage/cache",));
 
 $app->register(new MonologServiceProvider(), array(
@@ -51,6 +49,7 @@ $app->register(new MonologServiceProvider(), array(
     "monolog.level" => $app["log.level"],
     "monolog.name" => "application"
 ));
+
 
 //load services
 $servicesLoader = new App\ServicesLoader($app);
