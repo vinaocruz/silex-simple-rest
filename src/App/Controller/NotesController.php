@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\JsonResponse;
