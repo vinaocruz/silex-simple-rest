@@ -1,14 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Service;
 
 abstract class AbstractService
 {
-    protected $db;
-
-    public function __construct($db)
-    {
-        $this->db = $db;
-    }
 
 }

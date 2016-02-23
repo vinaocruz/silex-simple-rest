@@ -1,33 +1,42 @@
 <?php
 
-namespace App\Services;
+namespace App\Service;
+
+use App\Entity\Note;
+use App\Mapper\MapperInterface;
 
 class NotesService
 {
+    protected $mapper;
+
+    public function __construct(MapperInterface $mapper)
+    {
+        $this->mapper = $mapper;
+    }
 
     public function getAll()
     {
-        return [];
+        return $this->mapper->findAll();
     }
 
     function get($id)
     {
-        return $id;
+        return $this->mapper->get($id);
     }
 
-    function save($note)
+    function save(Note $note)
     {
-        return 1;
+        return $this->mapper->save($note);
     }
 
-    function update($id, $note)
+    function update(Note $note)
     {
-        return true;
+        return $this->mapper->update($note);
     }
 
-    function delete($id)
+    function delete(Note $note)
     {
-        return true;
+        return $this->mapper->delete($note);
     }
 
 }

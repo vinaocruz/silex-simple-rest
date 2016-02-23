@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Mapper\NoteMapper;
 use Silex\Application;
 
 class ServicesLoader
@@ -16,8 +17,7 @@ class ServicesLoader
     public function bindServicesIntoContainer()
     {
         $this->app['notes.service'] = $this->app->share(function () {
-            return new Services\NotesService();
+            return new Service\NotesService(new NoteMapper());
         });
     }
 }
-
