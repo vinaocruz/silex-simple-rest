@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class BaseService
+abstract class AbstractService
 {
     protected $db;
 
