@@ -1,15 +1,34 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vinicius
- * Date: 23/02/16
- * Time: 09:34
- */
 
 namespace App\Mapper;
 
+use App\Entity\AbstractEntity;
 
-class NoteMapper
+class NoteMapper implements MapperInterface
 {
+    public function save(AbstractEntity $note)
+    {
+        // TODO: Implement save() method.
+    }
+
+    public function update(AbstractEntity $note)
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function delete(AbstractEntity $note)
+    {
+        // TODO: Implement delete() method.
+    }
+
+    public function get($id)
+    {
+        // TODO: Implement get() method.
+    }
+
+    public function findAll($options = null)
+    {
+        // TODO: Implement findAll() method.
+    }
 
 }
