@@ -4,13 +4,15 @@ namespace App\Service;
 
 use App\Entity\Note;
 use App\Mapper\MapperInterface;
+use Silex\Application;
 
-class NotesService
+class NotesService extends AbstractService
 {
     protected $mapper;
 
-    public function __construct(MapperInterface $mapper)
+    public function __construct(Application $app, MapperInterface $mapper)
     {
+        parent::__construct($app);
         $this->mapper = $mapper;
     }
 

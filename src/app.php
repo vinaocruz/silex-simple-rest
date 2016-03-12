@@ -45,15 +45,13 @@ $app->register(new ValidatorServiceProvider());
 $app->register(new HttpCacheServiceProvider(), array("http_cache.cache_dir" => ROOT_PATH . "/storage/cache",));
 
 $app->register(new MonologServiceProvider(), array(
-    "monolog.logfile" => ROOT_PATH . "/storage/logs/" . Carbon::now('Europe/London')->format("Y-m-d") . ".log",
+    "monolog.logfile" => ROOT_PATH . "/storage/logs/" . Carbon::now('America/Bahia')->format("Y-m-d") . ".log",
     "monolog.level" => $app["log.level"],
     "monolog.name" => "application"
 ));
 
-
-//load services
-$servicesLoader = new App\ServicesLoader($app);
-$servicesLoader->bindServicesIntoContainer();
+//third party provider
+$app->register(new \App\Provider\NotesServiceProvider());
 
 //load routes
 $routesLoader = new App\RoutesLoader($app);

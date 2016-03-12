@@ -4,7 +4,7 @@ namespace App\Mapper;
 
 use App\Entity\AbstractEntity;
 
-class NoteMapper implements MapperInterface
+class NotesMapper implements MapperInterface
 {
     public function save(AbstractEntity $note)
     {
