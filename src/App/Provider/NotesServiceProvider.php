@@ -11,8 +11,8 @@ class NotesServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
-        $this->app['notes.service'] = $this->app->share(function () {
-            return new NotesService($this->app, new NotesMapper());
+        $app['notes.service'] = $app->share(function (Application $app) {
+            return new NotesService($app, new NotesMapper());
         });
     }
 
