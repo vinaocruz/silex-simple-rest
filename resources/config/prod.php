@@ -10,3 +10,4 @@ $app['db.options'] = array(
   "host" => "prod_host",
 );
 $app['app.timezone'] = 'America/Bahia';
+$app['app.storage'] = __DIR__ . "/../../storage/";
