@@ -3,15 +3,15 @@
 namespace App\Controller;
 
 use Silex\Application;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class NotesController
+class NotesController extends AbstractController
 {
     protected $notesService;
 
     public function __construct(Application $app)
     {
+        parent::__construct($app);
         $this->notesService = $app['notes.service'];
     }
 
@@ -30,19 +30,19 @@ class NotesController
 
     public function fetchAll()
     {
-        return new JsonResponse($this->notesService->getAll());
+        return $this->app->json($this->notesService->getAll());
     }
 
     public function fetch($id)
     {
-        return new JsonResponse($this->notesService->get($id));
+        return $this->app->json($this->notesService->get($id));
     }
 
     public function save(Request $request)
     {
 
         $note = $this->getDataFromRequest($request);
-        return new JsonResponse(array("id" => $this->notesService->save($note)));
+        return $this->app->json(array("id" => $this->notesService->save($note)));
 
     }
 
@@ -50,14 +50,14 @@ class NotesController
     {
         $note = $this->getDataFromRequest($request);
         $this->notesService->update($id, $note);
-        return new JsonResponse($note);
+        return $this->app->json($note);
 
     }
 
     public function delete($id)
     {
 
-        return new JsonResponse($this->notesService->delete($id));
+        return $this->app->json($this->notesService->delete($id));
 
     }
 
