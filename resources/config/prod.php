@@ -1,7 +1,9 @@
 <?php
+
+require __DIR__ . '/common.php';
+
 $app['log.level'] = Monolog\Logger::ERROR;
-$app['api.version'] = "v1";
-$app['api.endpoint'] = "/api";
+
 $app['db.options'] = array(
   "driver" => "pdo_mysql",
   "user" => "root",
@@ -9,4 +11,5 @@ $app['db.options'] = array(
   "dbname" => "prod_db",
   "host" => "prod_host",
 );
-$app['app.timezone'] = 'America/Bahia';
+
+$app['debug'] = false;

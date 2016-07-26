@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vinicius
- * Date: 25/07/16
- * Time: 22:47
- */
+
+$app['api.version'] = "v1";
+$app['api.endpoint'] = "/api";
+
+$app['app.timezone'] = 'America/Bahia';
+
+date_default_timezone_set($app['app.timezone']);
