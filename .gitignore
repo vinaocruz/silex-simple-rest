@@ -5,4 +5,3 @@ app/logs/*.log
 .idea
 app.db
 composer.lock
-web/ROOT_PATH/
