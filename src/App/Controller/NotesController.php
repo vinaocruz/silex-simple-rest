@@ -8,23 +8,22 @@ use Symfony\Component\HttpFoundation\Request;
 
 class NotesController
 {
-
     protected $notesService;
 
-    public function __construct($service)
+    public function __construct(Application $app)
     {
-        $this->notesService = $service;
+        $this->notesService = $app['notes.service'];
     }
 
-    public function routes(Application $app)
+    public static function routes(Application $app)
     {
         $routing = $app["controllers_factory"];
 
-        $routing->get('/notes', "notes.controller:fetchAll");
-        $routing->get('/notes/{id}', "notes.controller:fetch");
-        $routing->post('/notes', "notes.controller:save");
-        $routing->put('/notes/{id}', "notes.controller:update");
-        $routing->delete('/notes/{id}', "notes.controller:delete");
+        $routing->get('/notes', [new self($app), 'fetchAll']);
+        $routing->get('/notes/{id}', [new self($app), 'fetch']);
+        $routing->post('/notes', [new self($app), 'save']);
+        $routing->put('/notes/{id}', [new self($app), 'update']);
+        $routing->delete('/notes/{id}', [new self($app), 'delete']);
 
         return $routing;
     }
