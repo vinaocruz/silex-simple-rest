@@ -5,3 +5,4 @@ var/logs/*.log
 .idea
 app.db
 composer.lock
+.env

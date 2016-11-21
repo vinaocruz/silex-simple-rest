@@ -1,8 +1,6 @@
 <?php
 
-$app['api.version'] = "v1";
 $app['api.endpoint'] = "/api";
+$app['api.timezone'] = 'America/Bahia';
 
-$app['app.timezone'] = 'America/Bahia';
-
-date_default_timezone_set($app['app.timezone']);
+date_default_timezone_set($app['api.timezone']);

@@ -2,4 +2,4 @@
 
 use App\Controller\NotesController;
 
-$app->mount($app["api.endpoint"].'/'.$app["api.version"], NotesController::routes($app));
+$app->mount($app["api.endpoint"].'/', NotesController::routes($app));
