@@ -1,5 +1,5 @@
 {
-	"name": "vesparny/silex-simple-rest",
+	"name": "vinaocruz/silex-simple-rest",
 	"type": "library",
 	"description": "A simple silex skeleton for rest api",
 	"keywords": [
@@ -12,7 +12,7 @@
 		"email": "vinaocruz@gmail.com"
 	}],
 	"require": {
-		"php": ">=5.5.0",
+		"php": ">=7.0",
 		"silex/silex": "~2.0",
 		"monolog/monolog": "~1.6",
 		"nesbot/Carbon": "~1.6",
@@ -28,5 +28,13 @@
 			"App": "src/",
 			"Console": "src/"
 		}
-	}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"mkdir -p ./var/logs",
+			"mkdir -p ./var/cache",
+			"chmod 777 ./var/logs",
+			"chmod 777 ./var/cache"
+		]
+	},
 }

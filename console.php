@@ -5,13 +5,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 define("ROOT_PATH", __DIR__ . "/");
 
-$app = new Silex\Application();
+$app = require_once __DIR__ . '/src/app.php';
 
-require __DIR__ . '/resources/config/main.php';
-
-require __DIR__ . '/src/middleware.php';
-require __DIR__ . '/src/providers.php';
-require __DIR__ . '/src/routes.php';
+require_once __DIR__ . '/resources/config/main.php';
+require_once __DIR__ . '/src/middleware.php';
+require_once __DIR__ . '/src/routes.php';
 
 $app->register(
     new \Knp\Provider\ConsoleServiceProvider(),
