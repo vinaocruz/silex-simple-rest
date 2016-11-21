@@ -1,6 +1,6 @@
 vendor
 .DS_Store
-app/logs/*.log
+var/logs/*.log
 *~
 .idea
 app.db
