@@ -17,7 +17,8 @@
 		"monolog/monolog": "~1.6",
 		"nesbot/Carbon": "~1.6",
 		"symfony/validator": "^3.0",
-		"knplabs/console-service-provider": "^2.0"
+		"knplabs/console-service-provider": "^2.0",
+		"robmorgan/phinx": "^0.6.5"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.1.4",
@@ -36,5 +37,5 @@
 			"chmod 777 ./var/logs",
 			"chmod 777 ./var/cache"
 		]
-	},
+	}
 }
