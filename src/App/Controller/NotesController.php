@@ -28,7 +28,7 @@ class NotesController extends AbstractController
         return $routing;
     }
 
-    public function fetchAll()
+    public function fetchAll(Application $app)
     {
         return $this->app->json($this->notesService->getAll());
     }

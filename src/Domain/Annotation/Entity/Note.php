@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace Annotation\Entity;
+
+use Domain\AbstractEntity;
 
 class Note extends AbstractEntity
 {

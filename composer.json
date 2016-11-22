@@ -28,6 +28,8 @@
 	"autoload": {
 		"psr-0": {
 			"App": "src/",
+			"Domain": "src/",
+			"Annotation": "src/Domain/",
 			"Console": "src/"
 		}
 	},

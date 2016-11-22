@@ -5,15 +5,15 @@ namespace App\Provider;
 use Silex\Application;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use App\Mapper\NotesMapper;
-use App\Service\NotesService;
+use Annotation\Service\NoteService;
+use Annotation\Repository\NoteRepository;
 
 class NotesServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $app)
     {
         $app['notes.service'] = function () use ($app) {
-            return new NotesService($app, new NotesMapper());
+            return new NoteService($app, new NoteRepository());
         };
     }
 }

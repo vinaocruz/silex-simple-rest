@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Mapper;
+namespace Domain;
 
-use App\Entity\AbstractEntity;
+use Domain\AbstractEntity;
 
-interface MapperInterface
+interface RepositoryInterface
 {
     public function save(AbstractEntity $entity);
 

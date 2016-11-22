@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Mapper;
+namespace Annotation\Repository;
 
-use App\Entity\AbstractEntity;
+use Domain\{AbstractEntity,RepositoryInterface};
 
-class NotesMapper implements MapperInterface
+class NoteRepository implements RepositoryInterface
 {
     public function save(AbstractEntity $note)
     {
